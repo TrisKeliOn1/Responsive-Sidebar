@@ -16,7 +16,7 @@ body {
 }
 
 .sidebar {
-    width: 360px;
+    width: 120px;
     height: 100%;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
@@ -24,6 +24,10 @@ body {
     box-shadow: 0 8px 32px rgb(2, 4, 24);
     border-right: 2px solid rgba(255, 255, 255, .09);
     transition: .4s ease-in-out;
+}
+
+.sidebar.open {
+    width: 360px;
 }
 
 .sidebar .logo {
@@ -39,6 +43,10 @@ body {
     width: 56px;
 }
 
+.sidebar.open .logo img {
+    width: 96px;
+}
+
 .sidebar .logo h3 {
     color: #fff;
     font-size: 36px;
@@ -49,11 +57,24 @@ body {
     opacity: 0;
 }
 
+.sidebar.open .logo h3 {
+    scale: 1;
+    opacity: 1;
+    transition: .4s;
+    transition-delay: .2s;
+}
+
 .sidebar .nav-title {
     color: #dadada;
     margin: 40px 0 18px;
     pointer-events: none;
     opacity: 0;
+}
+
+.sidebar.open .nav-title {
+    opacity: 1;
+    transition: .4s;
+    transition-delay: .2s
 }
 
 .sidebar nav {
@@ -93,6 +114,13 @@ body {
     opacity: 0;
 }
 
+.sidebar.open nav .nav-item span {
+    pointer-events: visible;
+    opacity: 1;
+    transition: .4s;
+    transition-delay: .2s
+}
+
 .sidebar hr {
     width: 100%;
     height: 2px;
@@ -100,6 +128,11 @@ body {
     border-radius: 3px;
     margin: 40px 0 50px;
     opacity: 0;
+}
+
+.sidebar.open hr {
+    opacity: 1;
+    transition: .4s;
 }
 
 .sidebar .toggle {
@@ -120,4 +153,15 @@ body {
     );
 }
 
-.sidebar.open .toggle 
+.sidebar.open .toggle  {
+    transform: translateY(45px);
+}
+
+.sidebar .toggle i {
+    transition: .4s linear;
+}
+
+.sidebar.open .toggle i {
+    transform: rotateY(180deg);
+}
+
